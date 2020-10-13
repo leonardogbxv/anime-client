@@ -1,11 +1,11 @@
 # Anime Client
 
-Client that consumes [Kitsu API](https://kitsu.docs.apiary.io/#) data to display search results of animes information.
+Client that consumes [Kitsu API](https://kitsu.docs.apiary.io/#) data to display search results of animes.
 
 [JSON:API](https://jsonapi.org/format/)
 
 ## TODO
 
-- [x] XMLHttpRequest version
-- [ ] Fetch version
-- [ ] Node version
+- [x] XMLHttpRequest ver.
+- [ ] Fetch ver.
+- [ ] Node ver.
