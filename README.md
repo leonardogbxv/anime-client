@@ -7,5 +7,4 @@ Client that consumes [Kitsu API](https://kitsu.docs.apiary.io/#) data to display
 ## TODO
 
 - [x] XMLHttpRequest ver.
-- [ ] Fetch ver.
-- [ ] Node ver.
+- [x] Fetch ver.
