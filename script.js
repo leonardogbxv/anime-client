@@ -16,43 +16,45 @@ async function searchAnime() {
 
     show(data);
   } catch (err) {
-    console.warn(`An error has ocurred: ${err}`);
+    console.error(`An error has ocurred: ${err}`);
   }
 }
 
-function show(animes) {
+async function show(animes) {
   const results = document.getElementById('results'); 
   
   // console.log(Object.values(animes.data));
   // console.log(Object.keys(animes.data).length);
   // console.log('anime daisukiiiiiiii ! !');
 
-  // for(let i = 0; i <= Object.keys(animes.data).length; i++) {}
-  const { attributes } = animes.data[0];
-
-  const img = attributes.coverImage && attributes.coverImage.original ? attributes.coverImage.original : attributes.posterImage.large;
-  const synopsis = attributes.synopsis;
-  const title = attributes.canonicalTitle;
-  const engTitle = attributes.titles.en;
-  const romTitle = attributes.titles.en_jp;
-  const jpTitle = attributes.titles.ja_jp;
-  const startDate = attributes.startDate;
-  const endDate = attributes.endDate;
-  const status = attributes.status;
-  const episodeCount = attributes.episodeCount;
-  const showType = attributes.showType;
-
+  for(let i = 0; i <= Number(Object.keys(animes.data).length); i++) {
+    console.log(i);
+    const { attributes } = animes.data[i];
   
-  results.innerHTML = `<h5 class="mb-0">Anime: ${title}</h5>`;
-  results.innerHTML += `<h6 class="mb-0 text-muted font-weight-light">Romanized: ${romTitle}</h6>`;
-  results.innerHTML += `<h6 class="mb-3 text-muted font-weight-light">Japanese: ${jpTitle}</h6>`;
-  results.innerHTML += `<img class="mb-3 img-fluid" src="${ img ? img : '' }" alt="${title}">`;
-  results.innerHTML += `<div class=""><strong>Type:</strong> ${showType}</div>`;
-  results.innerHTML += `<div class=""><strong>Episodes:</strong> ${episodeCount}</div>`;
-  results.innerHTML += `<div class=""><strong>Aired:</strong> ${startDate} ${endDate == null ? '' :  `to ${endDate}` }</div>`;
-  results.innerHTML += `<div class="mb-3"><strong>Status:</strong> ${status.toUpperCase()}</div>`;
-  results.innerHTML += `<h5 class="mb-2">Synopsis:</h5>`;
-  results.innerHTML += `<p class="mb-2">${synopsis}</p>`;
+    const img = attributes.coverImage && attributes.coverImage.original ? attributes.coverImage.original : attributes.posterImage.large;
+    const synopsis = attributes.synopsis;
+    const title = attributes.canonicalTitle;
+    const engTitle = attributes.titles.en;
+    const romTitle = attributes.titles.en_jp;
+    const jpTitle = attributes.titles.ja_jp;
+    const startDate = attributes.startDate;
+    const endDate = attributes.endDate;
+    const status = attributes.status;
+    const episodeCount = attributes.episodeCount;
+    const showType = attributes.showType;
+    
+    results.innerHTML += `<h5 class="mb-0">Anime: ${title}</h5>`;
+    results.innerHTML += `<h6 class="mb-0 text-muted font-weight-light">Romanized: ${romTitle}</h6>`;
+    results.innerHTML += `<h6 class="mb-3 text-muted font-weight-light">Japanese: ${jpTitle}</h6>`;
+    results.innerHTML += `<img class="mb-3 img-fluid" src="${ img ? img : '' }" alt="${title}">`;
+    results.innerHTML += `<div class=""><strong>Type:</strong> ${showType.toUpperCase()}</div>`;
+    results.innerHTML += `<div class=""><strong>Episodes:</strong> ${episodeCount}</div>`;
+    results.innerHTML += `<div class=""><strong>Aired:</strong> ${startDate} ${endDate == null ? '' :  `to ${endDate}` }</div>`;
+    results.innerHTML += `<div class="mb-3"><strong>Status:</strong> ${status.toUpperCase()}</div>`;
+    results.innerHTML += `<h5 class="mb-2">Synopsis:</h5>`;
+    results.innerHTML += `<p class="mb-2">${synopsis}</p>`;
+    results.innerHTML += `<hr>`;
+  }
 }
 
 // XMLHttpRequest version
