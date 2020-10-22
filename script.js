@@ -1,14 +1,14 @@
 // fetch version
-
+const results = document.getElementById('results'); 
 const btn = document.getElementById('anime-search');
 btn.addEventListener('click', searchAnime);
 
 async function searchAnime() {
   const loading = `<img src="./assets/ajax-loader.gif" alt="loading page.." />`;
-  document.getElementById('results').innerHTML = loading;  
-  const inputValue = document.getElementById('anime-input').value;
-  const url = 'https://kitsu.io/api/edge/anime?filter[text]=' + inputValue;
-  console.log(url);
+  results.innerHTML = loading;  
+
+  const inputValue = document.getElementById('anime-input').value.split(' ').join('-');  
+  const url = `https://kitsu.io/api/edge/anime?filter[text]=${inputValue}&page[limit]=20`;
 
   try {
     const response = await fetch(url);
@@ -24,15 +24,9 @@ async function searchAnime() {
 }
 
 async function show(animes) {
-  const results = document.getElementById('results'); 
   results.innerHTML = '';
-  
-  // console.log(Object.values(animes.data));
-  // console.log(Object.keys(animes.data).length);
-  // console.log('anime daisukiiiiiiii ! !');
 
   for(let i = 0; i < Number(Object.keys(animes.data).length); i++) {
-    console.log(i);
     const { attributes } = animes.data[i];
   
     const img = attributes.coverImage && attributes.coverImage.original ? attributes.coverImage.original : attributes.posterImage.large;
