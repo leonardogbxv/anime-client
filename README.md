@@ -8,4 +8,3 @@ Client that consumes [Kitsu API](https://kitsu.docs.apiary.io/#) data to display
 
 - [x] XMLHttpRequest ver.
 - [x] Fetch ver.
-- [ ] Add pagination
