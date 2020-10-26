@@ -1,4 +1,4 @@
-// fetch version
+// fetch
 const results = document.getElementById('results'); 
 const btn = document.getElementById('anime-search');
 btn.addEventListener('click', searchAnime);
@@ -42,12 +42,12 @@ async function show(animes) {
     const showType = attributes.showType;
     
     results.innerHTML += `<h5 class="mb-0">Anime: ${title}</h5>`;
-    results.innerHTML += `<h6 class="mb-0 text-muted font-weight-light">Romanized: ${romTitle}</h6>`;
-    results.innerHTML += `<h6 class="mb-3 text-muted font-weight-light">Japanese: ${jpTitle}</h6>`;
+    results.innerHTML += `<h6 class="mb-0 text-muted font-weight-light">Romanizado: ${romTitle}</h6>`;
+    results.innerHTML += `<h6 class="mb-3 text-muted font-weight-light">Japonês: ${jpTitle}</h6>`;
     results.innerHTML += `<img class="mb-3 img-fluid" src="${ img ? img : '' }" alt="${title}">`;
-    results.innerHTML += `<div class=""><strong>Type:</strong> ${showType.toUpperCase()}</div>`;
-    results.innerHTML += `<div class=""><strong>Episodes:</strong> ${episodeCount}</div>`;
-    results.innerHTML += `<div class=""><strong>Aired:</strong> ${startDate} ${endDate == null ? '' :  `to ${endDate}` }</div>`;
+    results.innerHTML += `<div class=""><strong>Tipo:</strong> ${showType.toUpperCase()}</div>`;
+    results.innerHTML += `<div class=""><strong>Episódios:</strong> ${episodeCount}</div>`;
+    results.innerHTML += `<div class=""><strong>Exibido:</strong> ${startDate} ${endDate == null ? '' :  `to ${endDate}` }</div>`;
     results.innerHTML += `<div class="mb-3"><strong>Status:</strong> ${status.toUpperCase()}</div>`;
     results.innerHTML += `<h5 class="mb-2">Synopsis:</h5>`;
     results.innerHTML += `<p class="mb-2">${synopsis}</p>`;
@@ -55,7 +55,7 @@ async function show(animes) {
   }
 }
 
-// XMLHttpRequest version
+// XMLHttpRequest
 //
 // function searchAnime() {
 //   const results = document.getElementById('results');
