@@ -4,6 +4,8 @@ Client that consumes [Kitsu API](https://kitsu.docs.apiary.io/#) data to display
 
 [JSON:API](https://jsonapi.org/format/)
 
+https://leonardogbxv.github.io/anime-client/
+
 ## TODO
 
 - [x] XMLHttpRequest ver.
